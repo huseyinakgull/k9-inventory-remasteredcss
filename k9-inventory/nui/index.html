@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link src="./fonts/burbankbigcondensed-bold-webfont.woff" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>INVENTORY FOR PVP SERVERS</title>
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="bg">
+        <div class="button-container">
+            <img src="./assets/inventory.png">
+            <button class="my-button" onclick="SetCurrentPage('inventaire')">INVENTORY</button>
+            <img src="./assets/player.png">
+            <button class="my-button" onclick="SetCurrentPage('gfxprofile-main-contain')">PROFILE</button>
+            <img src="./assets/leaders.png">
+            <button class="my-button" onclick="SetCurrentPage('gfxlb-main-contain')">LEADERBOARD</button>
+        </div>
+        <div class="blueline"></div>
+    </div>
+    <div class="gfxinv-main-contain"> <!-- stash-active-main -->
+        <div class="gfxinv-player-inv">            
+            <div class="gfxinv-inv-header">
+                <h1>  Player Container</h1>
+                <div class="header-weight">
+                    <!-- <div class="weight-text">
+                        <p style="font-size: 1.8vh;"><span class="weight">25</span>KG</p>
+                        <p style="font-size: 2vh;">/</p>
+                        <p style="font-size: 2.4vh;"><span class="maxWeight">50</span>KG</p>
+                    </div>
+                    <div class="weight-progress">
+                        <div class="progress"></div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="gfxinv-inv-content">
+                <div class="gfxinv-item-slot ${v.rarity}-item" data-key=${v.name} data-itemdata=${JSON.stringify({itemName: v.name, itemCount: v.count, currentContainer: inventoryType})}>
+                    <div class="item-slot-state"></div>
+                    <div class="image-bg">
+                        <img src="assets/deluxo.png" alt="">
+                    </div>
+                    <div class="item-slot-info">
+                        <h1>Deluxo</h1>
+                    </div>
+                    <p class="item-count">2x</p>
+                </div>
+                <div class="gfxinv-item-slot ${v.rarity}-item" data-key=${v.name} data-itemdata=${JSON.stringify({itemName: v.name, itemCount: v.count, currentContainer: inventoryType})}>
+                    <div class="item-slot-state"></div>
+                    <div class="image-bg">
+                        <img src="assets/deluxo.png" alt="">
+                    </div>
+                    <div class="item-slot-info">
+                        <h1>Deluxo</h1>
+                    </div>
+                    <p class="item-count">2x</p>
+                </div>
+                <div class="gfxinv-item-slot ${v.rarity}-item" data-key=${v.name} data-itemdata=${JSON.stringify({itemName: v.name, itemCount: v.count, currentContainer: inventoryType})}>
+                    <div class="item-slot-state"></div>
+                    <div class="image-bg">
+                        <img src="assets/deluxo.png" alt="">
+                    </div>
+                    <div class="item-slot-info">
+                        <h1>Deluxo</h1>
+                    </div>
+                    <p class="item-count">2x</p>
+                </div>
+            </div>
+        </div>
+        <div class="gfxinv-protected-inv"> 
+            <div class="gfxinv-inv-header">
+                <h1>Protected Inventory</h1>    
+                <div class="header-weight">
+                    <div class="weight-text">
+                        <!-- <p style="font-size: 1.8vh;"><span class="weight">25</span>KG</p>
+                        <p style="font-size: 2vh;">/</p>
+                        <p style="font-size: 2.4vh;"><span class="maxWeight">50</span>KG</p> -->
+                    </div>
+                    <!-- <div class="weight-progress">
+                         <div class="progress"></div> 
+                    </div> -->
+                </div>
+            </div>
+            <div class="gfxinv-inv-content">
+                <div class="gfxinv-item-slot ${v.rarity}-item" data-key=${v.name} data-itemdata=${JSON.stringify({itemName: v.name, itemCount: v.count, currentContainer: inventoryType})}>
+                    <div class="item-slot-state"></div>
+                    <div class="image-bg">
+                        <img src="assets/deluxo.png" alt="">
+                    </div>
+                    <div class="item-slot-info">
+                        <h1>Deluxo</h1>
+                    </div>
+                    <p class="item-count">2x</p>
+                </div>
+                <div class="gfxinv-item-slot ${v.rarity}-item" data-key=${v.name} data-itemdata=${JSON.stringify({itemName: v.name, itemCount: v.count, currentContainer: inventoryType})}>
+                    <div class="item-slot-state"></div>
+                    <div class="image-bg">
+                        <img src="assets/deluxo.png" alt="">
+                    </div>
+                    <div class="item-slot-info">
+                        <h1>Deluxo</h1>
+                    </div>
+                    <p class="item-count">2x</p>
+                </div>
+            </div>
+        </div>
+        <div class="gfxinv-hotbar-inv"> 
+            <div class="gfxinv-hotbarinv-header">
+                <h1>HOTBAR</h1>
+            </div>
+            <div class="gfxinv-hotbarinv-content">
+                <div class="gfxinv-item-slot common-item" data-id="1" name="hotbar">
+                    <div class="item-slot-state"></div>
+                    <!-- <img src="assets/deluxo.png" alt=""> -->
+                    <div class="item-slot-info">
+                        <h1></h1>
+                        <!-- <p>2X</p> -->
+                    </div>
+                    <div class="hotbarslot-numbers">
+                        <h1>1</h1>
+                    </div>
+                </div>
+                <div class="gfxinv-item-slot common-item" data-id="2" name="hotbar">
+                    <div class="item-slot-state"></div>
+                    <!-- <img src="assets/deluxo.png" alt=""> -->
+                    <div class="item-slot-info">
+                        <h1></h1>
+                        <!-- <p>2X</p> -->
+                    </div>
+                    <div class="hotbarslot-numbers">
+                        <h1>2</h1>
+                    </div>
+                </div>
+                <div class="gfxinv-item-slot common-item" data-id="3" name="hotbar">
+                    <div class="item-slot-state"></div>
+                    <!-- <img src="assets/deluxo.png" alt=""> -->
+                    <div class="item-slot-info">
+                        <h1></h1>
+                        <!-- <p>2X</p> -->
+                    </div>
+                    <div class="hotbarslot-numbers">
+                        <h1>3</h1>
+                    </div>
+                </div>
+                <div class="gfxinv-item-slot common-item" data-id="4" name="hotbar">
+                    <div class="item-slot-state"></div>
+                    <!-- <img src="assets/deluxo.png" alt=""> -->
+                    <div class="item-slot-info">
+                        <h1></h1>
+                        <!-- <p>2X</p> -->
+                    </div>
+                    <div class="hotbarslot-numbers">
+                        <h1>4</h1>
+                    </div>
+                </div>
+                <div class="gfxinv-item-slot common-item" data-id="5" name="hotbar">
+                    <div class="item-slot-state"></div>
+                    <!-- <img src="assets/deluxo.png" alt=""> -->
+                    <div class="item-slot-info">
+                        <h1></h1>
+                        <!-- <p>2X</p> -->
+                    </div>
+                    <div class="hotbarslot-numbers">
+                        <h1>5</h1>
+                    </div>
+                </div>
+                <div class="gfxinv-item-slot common-item" data-id="6" name="hotbar">
+                    <div class="item-slot-state"></div>
+                    <!-- <img src="assets/deluxo.png" alt=""> -->
+                    <div class="item-slot-info">
+                        <h1></h1>
+                        <!-- <p>2X</p> -->
+                    </div>
+                    <div class="hotbarslot-numbers">
+                        <h1>6</h1>
+                    </div>
+                </div>
+                <div class="gfxinv-item-slot common-item" data-id="7" name="hotbar">
+                    <div class="item-slot-state"></div>
+                    <!-- <img src="assets/deluxo.png" alt=""> -->
+                    <div class="item-slot-info">
+                        <h1></h1>
+                        <!-- <p>2X</p> -->
+                    </div>
+                    <div class="hotbarslot-numbers">
+                        <h1>7</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="deathmatchleader">
+        <div class="onelead">
+            <div class="rectaledeallah">
+                <h1>1st</h1>
+            </div>
+            <div class="allahlebatard">
+                <p id="nameofplayers">quecy</p>
+            </div>
+            <div class="killssss">
+                <img src="./assets/fdpallag.png">
+                <p class="killsofplayers">999</p>
+            </div>
+        </div>
+        <div class="twolead">
+            <div class="rectaledeallahs">
+                <h1>2st</h1>
+            </div>
+            <div class="allahlebatards">
+                <p id="nameofplayerss">mentalite</p>
+            </div>
+            <div class="killlssss">
+                <img src="./assets/fdpallag.png">
+                <p class="killsofplayerss">999</p>
+            </div>
+        </div>
+        <div class="threelead">
+            <div class="rectaledeallahss">
+                <h1>3st</h1>
+            </div>
+            <div class="allahlebatardss">
+                <p id="nameofplayersss">quecy</p>
+            </div>
+            <div class="killssssss">
+                <img src="./assets/fdpallag.png">
+                <p class="killsofplayersss">999</p>
+            </div>
+        </div>
+        <div class="fourlead">
+            <div class="rectaledeallahsss">
+                <h1>4st</h1>
+            </div>
+            <div class="allahlebatardsss">
+                <p id="nameofplayerssss">mentalite</p>
+            </div>
+            <div class="killlssssss">
+                <img src="./assets/fdpallag.png">
+                <p class="killsofplayerssss">999</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="crew">
+        <div class="createcrew" required>
+            <h1>CREATE CREW</h1>
+            <!-- <h2>if you want to survive here, you'Il Want some allies. You can either create your own crew or join an existing one.</h2> -->
+            <div class="createcrewall">
+                <h2>Create Name</h2>
+                <input class="create-input" type="text" name="crtin" placeholder="" ng-model="text" onKeyPress="if(this.value.length==16) return false;" min="5" required="required" id="allahnexistepas">
+                <h3>Create tag</h3>
+                <input class="create-input" type="number" ng-model="number" onKeyPress="if(this.value.length==4) return false;" min="4" required="required" id="allahestpetit">
+                <br><br><br>
+                <input onclick="createcrewaccept()" class="accept" type="submit" value="ACCEPT">
+            </div>
+        </div>
+    </div>
+    
+    <div class="crewsystemall" onsubmit="return false;">
+        <div class="nav">
+            <h1 id="namecrew">Allahlepd</h1>
+            <input class="idforinvitecrew" type="number" ng-model="number" id="ntmlaputeallahh" placeholder="Player ID to invite "></input>
+            <button class="invitecrew" onclick="inviteplayercrew()">INVITE</button>
+            <button class="leavecrew" onclick="leavecrew()">LEAVE</button>
+        </div>
+        <div class="caseallcrew">
+            <div id="killscrew" style="background-image: url(./img/crewdegay.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <p id="killscrews">0</p>
+                <p>Kills</p>
+            </div>
+            <div id="deathcrew" style="background-image: url(./img/crewdegay.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <p id="deathcrews">0</p>
+                <p>Deaths</p>
+            </div>
+            <div id="killredezonecrew" style="background-image: url(./img/crewdegay.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <p id="killredezonecrews">0</p>
+                <p>Total red zone kills</p>
+            </div>
+            <div id="killdarkzonecrew" style="background-image: url(./img/crewdegay.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <p id="killdarkzonecrews">0</p>
+                <p>Total zombies kills</p>
+            </div>
+            <div id="airdropcrew" style="background-image: url(./img/crewdegay.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <p id="airdropcrews">0</p>
+                <p>Total taked airdrops</p>
+            </div>
+        </div>
+        <div class="gfxlbc-main-contain">
+            <div class="lbc-header-buttons">
+            </div>
+        
+        
+            <div class="lbc-content-title">
+                <p>Server ID</p>
+                <p>Name</p>
+                <p class="order-key" data-name="s">Status</p>
+                <p class="order-key" data-name="p">Permission</p>
+                <p>Manage</p>
+            </div>
+            <div class="lbc-content-contain">
+                <div class="lbcrow-item">
+                    <h1>1</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>Leader</p>
+                    <p></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>2</h1>
+                    <p>K9ONTOP</p>
+                    <p>offline</p>
+                    <p>Admin</p>
+                    <p><select class="manage" name="Action" id="Action" onchange="change()">
+                        <option value="action">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>3</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>Admin</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>4</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>Admin</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>5</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>6</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>7</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>8</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>9</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>10</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>11</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>13</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>14</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>15</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>16</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>17</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>18</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>19</h1>
+                    <p>K9ONTOP</p>
+                    <p>online</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+                <div class="lbcrow-item">
+                    <h1>20</h1>
+                    <p>K9ONTOP</p>
+                    <p>offline</p>
+                    <p>member</p>
+                    <p><select class="manage" name="manage" id="manage">
+                        <option value="action" style="display: none;">Action</option>
+                        <option value="promouvoir">Promouvoir</option>
+                        <option value="Kick">Kick</option>
+                    </select></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="gfxlbcrew-main-contain">
+
+        <div class="lbcrew-header-buttons">
+            <div class="lbcrew-header-button">
+                <h1 onclick="SetCurrentPage('gfxlb-main-contain')">PLAYER</h1>
+            </div>
+        </div>
+    
+    
+    
+        <div class="lbcrew-content-title">
+            <p>RANK</p>
+            <p>CREW NAME</p>
+            <p class="order-key" data-name="k">KILLS</p>
+            <p class="order-key" data-name="d">DEATHS</p>
+            <p>TOTAL RED ZONES KILLS</p>
+            <p>TOTAL ZOMBIE KILLS</p>
+            <p>TOTAL TAKED AIRDROPS</p>
+        </div>
+        <div class="lbcrew-content-contain">
+            <div class="lbcrewrow-item">
+                <h1>1</h1>
+                <p>LUA CREW</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>2</h1>
+                <p>HTML CREW</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>3</h1>
+                <p>CSS CREW</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>4</h1>
+                <p>JS CREW</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>5</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>6</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>7</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>8</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>9</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>10</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>11</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>13</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>14</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>15</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>16</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>17</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>18</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>19</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>20</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>21</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>22</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>23</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>24</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+            <div class="lbcrewrow-item">
+                <h1>25</h1>
+                <p>K9ONTOP</p>
+                <p>200.000</p>
+                <p>100.000</p>
+                <p>100</p>
+                <p>500</p>
+                <p>5</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="boutique"> 
+        <div class="container">
+            <section class="banner-module">
+                <div class="banner banner-one">
+                    <!-- Headline -->
+                    <span class="headline">10 000 POINTS <br> <p>9.60 EUR</p></span>
+    
+                    <button class="shop-btn" onclick="purchase(1)">Purchase</button>
+                </div>
+    
+                <div class="banner banner-two">
+                    <!-- Headline -->
+                    <span class="headline1">20 000 POINTS <br> <p>18.00 EUR</p></span>
+    
+                    <button class="shop-btn1" onclick="purchase(2)">Purchase</button>
+                </div>
+                
+                <div class="clear-fix"></div>
+                
+                <!--Banner 3-->
+                <div class="banner banner-three">
+                    <!-- Headline -->
+                    <span class="headline2">50 000 POINTS <br> <p>42.00 EUR</p></span>
+                    <!-- Button -->
+                    <button class="shop-btn2" onclick="purchase(3)">Purchase</button>
+                </div>
+    
+                <!--Banner 4-->
+                <div class="banner banner-four">
+                    <!-- Headline -->
+                    <span class="headline3">100 000 POINTS <br> <p>72.00 EUR</p></span>
+    
+                    <button class="shop-btn3" onclick="purchase(4)">Purchase</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="arena">
+        <div class="containere">
+            <section class="aren-module">
+                <div class="aren arene-one">
+                    <p id="pokemondelastreet">10/30</p>
+                    <span class="headline8">You have to be careful about the rooms you enter! <p style="bottom: 20px;">MOTEL DEATHMATCH</p></span>
+                    <button class="play-btn" onclick="playntm(1)" style="top: 105px;">Play</button>
+                </div>
+                <div class="aren arene-two">
+                    <p id="allahjlevioleirl">10/30</p>
+                    <span class="headline7">You can try trickshot.<br> <p>Deluxo Tricks</p></span>
+                    <button class="play-btn1" onclick="playntm(2)" style="top: 105px;">Play</button>
+                </div>
+                <div class="aren arene-two">
+                    <p id="allahjlevioleirl">10/30</p>
+                    <span class="headline8">You can try trickshot.<br> <p>Versus Arenas</p></span>
+                    <button class="play-btn5" onclick="playntm(5)" style="top: 105px;">1v1</button>
+                    <button class="play-btn6" onclick="playntm(6)" style="top: 105px;">2v2</button>
+                </div>
+                <div class="clear-fixe"></div>
+                <div class="aren arene-four">
+                    <p id="zemmourlegoat2027">10/30</p>
+                    <span class="headline5">Are you ready to fight in the maze?<br><br><p>MAZE GUNGAME</p></span>
+                    <button class="play-btn3" onclick="playntm(4)">Play</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="settings">
+        <div class="navbar-settings">
+            <button class="setbtn" onclick="SetCurrentPage('gameplay')">GAMEPLAY</button>
+            <button class="setbtn" onclick="SetCurrentPage('general')">USER INTERFACE</button>
+            <button class="setbtn" onclick="SetCurrentPage('sound')">AUDIO</button>
+        </div>
+        <div class="gameplay">
+            <div class="k-contents">
+                <h1>Crosshair</h1>
+                <input class="allcheck-crosshair" type="checkbox" id="slidersss" onclick="crosshair()">
+                <label class="allchecki-crosshair" for="slidersss"></label>
+            </div>
+            <div class="k-contents">
+                <h1>Death Message</h1>
+                <input class="allinput" type="text" placeholder="see u later!">
+                <input class="allsave" type="submit" value="Save">
+            </div>
+            <div class="k-contents">
+                <h1>Spawn With The Loadout</h1>
+                <input class="allcheck" type="checkbox" id="sliderss" onclick="loadout()">
+                <label class="allchecki" for="sliderss"></label>
+            </div>
+        </div>
+        <div class="general">
+            <div class="k-contents-user">
+                <h1>Killfeed</h1>
+                <input class="allcheck-user-killfeed" type="checkbox" id="sliderssss" onclick="killfeed()">
+                <label class="allchecki-user-killfeed" for="sliderssss"></label>
+            </div>
+            <div class="k-contents-user">
+                <h1>Custom Hud</h1>
+                <input class="allcheck-user-hud" type="checkbox" id="slidersssss" onclick="hud()">
+                <label class="allchecki-user-hud" for="slidersssss"></label>
+            </div>
+            <div class="k-contents-user">
+                <h1>Hitmarker</h1>
+                <input class="allcheck-user-hit" type="checkbox" id="slidersssssss" onclick="hitmarkertext()">
+                <label class="allchecki-user-hit" for="slidersssssss"></label>
+            </div>
+            <div class="k-contents-user">
+                <h1>Disable chat</h1>
+                <input class="allcheck-user-chat" type="checkbox" id="sliderssssss" onclick="disablechat()">
+                <label class="allchecki-user-chat" for="sliderssssss"></label>
+            </div>
+        </div>
+        <div class="sound">
+            <div class="k-contents-sound">
+                <h1>Hitmarker Sound</h1>
+                <input class="allcheck-user-hitsound" type="checkbox" id="sliderssssssss" onclick="hit()">
+                <label class="allchecki-user-hitsound" for="sliderssssssss"></label>
+            </div>
+            <div class="k-contents-sound">
+                <h1>Kill Sound</h1>
+                <input class="allcheck-user-killsound" type="checkbox" id="slidersssssssss" onclick="killsound()">
+                <label class="allchecki-user-killsound" for="slidersssssssss"></label>
+            </div>
+            <div class="k-contents-sound">
+                <h1>Zombie Sound</h1>
+                <input class="allcheck-user-zombiesound" type="checkbox" id="sliderssssssssss" onclick="zombiesound()">
+                <label class="allchecki-user-zombiesound" for="sliderssssssssss"></label>
+            </div>
+        </div>
+    </div>
+
+<div class="gfxlb-main-contain">
+    <div class="lb-content-title">
+        <p>RANK</p>
+        <p>NAME</p>
+        <p class="order-key" data-name="k">KILLS</p>
+        <p class="order-key" data-name="d">DEATHS</p>
+        <p>KD</p>
+    </div>
+    <div class="lb-content-contain">
+        <div class="lbrow-item">
+            <h1>1</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>2</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>3</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>4</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>5</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>6</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>7</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>8</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>9</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>10</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>11</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>13</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>14</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>15</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>16</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>17</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>18</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>19</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>20</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>21</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>22</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>23</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>24</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+        <div class="lbrow-item">
+            <h1>25</h1>
+            <p>K9ONTOP</p>
+            <p>200.000</p>
+            <p>100.000</p>
+            <p>KD</p>
+        </div>
+    </div>
+</div>
+
+<div class="gfxprofile-main-contain">
+    <div class="profile-user-photo">
+        <div class="wrapper-center">
+            <div class="progress-bar">
+              <svg class="progress" data-progress="10" x="0px" y="0px" viewBox="0 0 80 80">
+                <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+              </svg>
+              <div class="pp-text">
+                <h1 id="leveldedieux">100</h1>
+                <p>Level</p>
+              </div>
+              <img class="progress-bar-image" src="https://media.discordapp.net/attachments/1079514678348226651/1115352750172164156/a9610a2a253dd263999a19cd3710aeff.webp" alt="">
+              <div class="image-mask"></div>
+            </div>
+          </div>
+    </div>
+    <h1 id="profile-user-name">MP</h1>
+    <div class="profile-user-poınt">
+        <div class="stick"></div>
+        <div class="rect"></div>
+            
+            <div class="point-main-contain">
+                <svg class="point-contain" viewBox="0 0 301 83" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M36.582 4H264.418L295 41.463L264.418 78.926H36.582L6 41.463L36.582 4Z" fill="#070707" fill-opacity="0.5"/>
+                    <path d="M36.582 2H35.6329L35.0327 2.73525L4.45068 40.1982L3.41823 41.463L4.45068 42.7278L35.0327 80.1908L35.6329 80.926H36.582H264.418H265.367L265.967 80.1908L296.549 42.7278L297.582 41.463L296.549 40.1982L265.967 2.73525L265.367 2H264.418H36.582Z" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="2"/>
+                </svg>
+                <div class="pointsssss">
+                    <h1 id="pointssssforgay">10000000000</h1>
+                </div>
+            </div>
+        <div class="rect"></div>
+        <div class="stick"></div>
+    </div>
+    <div class="profile-user-informations">
+        <div class="info user-kill-info">                  
+            <svg width="100%" height="100%" viewBox="0 0 378 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M378 12C378 5.37259 372.627 0 366 0H12C5.37259 0 0 5.37258 0 12V436C0 442.627 5.37259 448 12 448H233.505C238.091 448 242.276 445.386 244.288 441.264L299.712 327.736C301.724 323.614 305.909 321 310.495 321H366C372.627 321 378 315.627 378 309V12Z" fill="#070707" fill-opacity="0.5" stroke="rgb(7, 7, 7)" stroke-width="1"/>
+            </svg>
+            <div class="kills-content">
+                <h1>KILLS</h1>
+                <p id="killssallahlepd">2200</p>
+            </div>
+        </div>
+        <div class="info user-death-info">
+            <svg width="100%" height="100%" viewBox="0 0 378 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 12C0 5.37259 5.37258 0 12 0H366C372.627 0 378 5.37258 378 12V436C378 442.627 372.627 448 366 448H144.495C139.909 448 135.724 445.386 133.712 441.264L78.2882 327.736C76.2762 323.614 72.091 321 67.5046 321H12C5.37259 321 0 315.627 0 309V12Z" fill="#070707" fill-opacity="0.5" stroke="rgb(7, 7, 7)" stroke-width="1"/>
+            </svg>  
+            <div class="death-content">
+                <h1>DEATHS</h1>
+                <p id="deathspourlez">1000</p>
+            </div>
+        </div>
+        <div class="kdinfo">
+            <svg width="100%" height="100%" viewBox="0 0 248 116" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M49.3857 3.46783C50.3703 1.35259 52.492 0 54.8252 0H192.205C194.522 0 196.633 1.33509 197.626 3.42947L246.936 107.429C248.824 111.41 245.921 116 241.515 116H6.41137C2.02411 116 -0.879678 111.445 0.971875 107.468L49.3857 3.46783Z" fill="#070707" fill-opacity="0.5"  fill-opacity="0.5" stroke="rgb(7, 7, 7)" stroke-width="1"/>
+            </svg>
+            <div class="kd-texts">
+                <h1 id="kddeallah">2.20</h1>
+                <p>KILLS.DEATHS</p>
+            </div>
+            <div class="zd-texts">
+                <p>ZOMBIES</p>
+                <h1 id="zomeallah">1000</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="help">
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Debitis recusandae reiciendis est et sit ad doloremque
+            aut animi mollitia quod necessitatibus rem,
+            ea accusantium laudantium, veritatis maiores officiis voluptatum
+            neque.
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Repellendus est quod, id iste velit esse dolorum quidem
+            voluptatibus.
+          </p>
+    </div>
+
+    <div class="battleroyalecount">
+        <p id="playerreste">
+            <img src="./assets/player.png" alt="">
+            <h2>100</h2>
+        </p>
+        <p id="kill">
+            <img src="./assets/kills.png" alt="">
+            <h1>10</h1>
+        </p>
+    </div>
+    
+    <div class="market">
+        <div class="design">
+            <div class="one">
+              <img src="img/500coins.png" class="amount-image">
+              <img src="img/buy.png" class="buy-image clickable" onclick="oka(1)">
+            </div>
+            <div class="espace"></div>
+            <div class="two">
+              <img src="img/1000coins.png" class="amount-image">
+              <img src="img/buy.png" class="buy-image clickable" onclick="oka(2)">
+            </div>
+            <div class="espace"></div>
+            <div class="tr">
+              <img src="img/1500coins.png" class="amount-image">
+              <img src="img/buy.png" class="buy-image clickable" onclick="oka(3)">
+            </div>
+            <div class="espace"></div>
+            <div class="fo">
+              <img src="img/2000coins.png" class="amount-image">
+              <img src="img/buy.png" class="buy-image clickable" onclick="oka(4)">
+            </div>
+          </div>
+        
+          <div class="design">
+            <div class="button-containere one">
+              <img src="img/3000coins.png" class="amount-image">
+              <img src="img/buy.png" class="buy-image clickable" onclick="oka(5)">
+            </div>
+            <div class="espace"></div>
+            <div class="button-containere two">
+              <img src="img/3500coins.png" class="amount-image">
+              <img src="img/buy.png" class="buy-image clickable" onclick="oka(6)">
+            </div>
+            <div class="espace"></div>
+            <div class="button-containere tr">
+              <img src="img/4000coins.png" class="amount-image">
+              <img src="img/buy.png" class="buy-image clickable" onclick="oka(7)">
+            </div>
+            <div class="espace"></div>
+            <div class="button-containere fo">
+              <img src="img/10000coins.png" class="amount-image">
+              <img src="img/buy.png" class="buy-image clickable" onclick="oka(8)">
+            </div>
+          </div>
+    </div>
+</body>
+</html>
