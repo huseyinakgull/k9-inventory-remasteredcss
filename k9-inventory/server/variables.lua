@@ -1,0 +1,3 @@
+PlayerItems = {}
+Hotbars = {}
+CommonInventories = {}
