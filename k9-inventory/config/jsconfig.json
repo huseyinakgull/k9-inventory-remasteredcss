@@ -1,0 +1,6 @@
+{
+    "CloseKeys": ["Escape"], 
+    "SecondaryInventoryTypes": { 
+        "stash": true
+    }
+}
